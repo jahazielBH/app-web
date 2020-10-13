@@ -4,16 +4,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MapComponent } from './map/map.component';
-import { MarkerService } from './_services/marker.service';
-import { PopUpService } from './_services/pop-up.service';
-import { ShapeService } from './_services/shape.service';
+
+
 import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MapComponent,
     LoginComponent
   ],
   imports: [
@@ -21,11 +18,7 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [
-    MarkerService,
-    PopUpService,
-    ShapeService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
