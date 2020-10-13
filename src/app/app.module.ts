@@ -8,11 +8,13 @@ import { MapComponent } from './map/map.component';
 import { MarkerService } from './_services/marker.service';
 import { PopUpService } from './_services/pop-up.service';
 import { ShapeService } from './_services/shape.service';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MapComponent
+    MapComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
