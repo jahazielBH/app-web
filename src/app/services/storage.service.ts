@@ -6,23 +6,6 @@ export class StorageService {
         return 'https://user-imc-api.herokuapp.com'
     }
 
-    setSession(key: string, obj: any) {
-        sessionStorage.setItem(key, JSON.stringify(obj))
-    }
-
-    getSession(key: string) {
-        const obj = sessionStorage.getItem(key);
-        return obj ? JSON.parse(obj) : null;
-    }
-
-    sessionDeleteAll() {
-        sessionStorage.clear();
-    }
-
-    sessionDeleteByKey(key: string) {
-        sessionStorage.removeItem(key);
-    }
-
     setLocal(key: string, obj: any) {
         localStorage.setItem(key, JSON.stringify(obj));
     }
@@ -38,5 +21,11 @@ export class StorageService {
 
     localDeleteByKey(key: string) {
         localStorage.removeItem(key);
+    }
+
+    isUserLoggedIn() {
+        let user = localStorage.getItem('token')
+        console.log(user);
+        return !(user === null)
     }
 }

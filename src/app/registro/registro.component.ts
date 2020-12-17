@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { UsersService } from "../services/users.service";
 import { UserApiRe } from "../models/userapire";
-import { StorageService } from "../services/storage.service";
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-registro',
@@ -19,7 +18,6 @@ export class RegistroComponent implements OnInit {
   constructor(
     private router: Router,
     private usersService: UsersService,
-    private storageService: StorageService
   ) { }
  
   registrar() {
@@ -43,12 +41,13 @@ export class RegistroComponent implements OnInit {
       
       return this.usersService.signup(mydata)
       .subscribe((data: any) => {
+        this.router.navigate(['']);
         this.result = 'Cuenta Creada con Exito';
         alert('Cuenta Creada con Exito');
       })
 
     }
-
+    
     this.result = myresult;
   }
 

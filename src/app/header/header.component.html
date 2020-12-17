@@ -5,8 +5,8 @@
 <header>
     <nav class="navbar navbar-expand navbar-dark bg-dark ">
         <div class="navbar-nav ">
-            <a *ngIf="usersService.isUserLoggedIn()" class="nav-item nav-link" routerLink="mapa">Mapa</a>
-            <a *ngIf="usersService.isUserLoggedIn()" class="nav-item nav-link" (click)="logout()" routerLink="">Logout</a>
+            <a *ngIf="storageService.isUserLoggedIn()" class="nav-item nav-link" routerLink="mapa">Mapa</a>
+            <a *ngIf="storageService.isUserLoggedIn()" class="nav-item nav-link" (click)="logout()">Logout</a>
         </div>
     </nav>
 </header>

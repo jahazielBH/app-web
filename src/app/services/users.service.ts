@@ -3,7 +3,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserApi } from '../models/usersapi';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
-import { Router } from '@angular/router';
 import { UserApiRe } from '../models/userapire';
 
 @Injectable({
@@ -15,7 +14,7 @@ export class UsersService {
     // Define API
     apiURL = 'https://user-imc-api.herokuapp.com';
 
-    constructor(private http: HttpClient,private router: Router) { }
+    constructor(private http: HttpClient) { }
 
     /*========================================
       CRUD Methods for consuming RESTful API
@@ -29,7 +28,7 @@ export class UsersService {
     }
     // HttpClient API post() method => Obtain User
     loginUser(userApi): Observable<UserApi> {
-       
+
         console.log(JSON.stringify(userApi));
         return this.http.post<UserApi>(this.apiURL + '/api/auth/signin', JSON.stringify(userApi), this.httpOptions)
             .pipe(
@@ -39,29 +38,7 @@ export class UsersService {
     }
     // HttpClient API post() method => Create User
     signup(userApiRe): Observable<UserApiRe> {
-        console.log(JSON.stringify(userApiRe));
         return this.http.post<UserApiRe>(this.apiURL + '/api/auth/signup', JSON.stringify(userApiRe), this.httpOptions)
-    }
-    
-
-    isUserLoggedIn() {
-        let user = localStorage.getItem('token')
-        console.log(!(user === null))
-        return !(user === null)
-    }
-
-    // Error handling 
-    handleError(error) {
-        let errorMessage = '';
-        if (error.error instanceof ErrorEvent) {
-            // Get client-side error
-            errorMessage = error.error.message;
-        } else {
-            // Get server-side error
-            errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-        }
-        window.alert(errorMessage);
-        return throwError(errorMessage);
     }
 
     MessageError(error) {
@@ -72,7 +49,7 @@ export class UsersService {
         } else {
             // Get server-side error
             //errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-            
+
             alert('USUARIO Y CONTRASEÑA INCORRECTOS');
         }
         //window.alert(errorMessage);

@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { UsersService } from './users.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http';
 import { UserApi } from "../models/usersapi";
 
 describe('DataApiService', () => {
@@ -14,7 +14,7 @@ describe('DataApiService', () => {
     const service: UsersService = TestBed.get(UsersService);
 
     var mydata = new UserApi;
-	  mydata.username = "jahazielbh";
+	  mydata.username = "jahazieljbh";
     mydata.password = "123456789";
     
     // Act

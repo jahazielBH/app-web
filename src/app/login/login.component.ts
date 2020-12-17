@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router} from '@angular/router';
 import { UsersService } from "../services/users.service";
 import { UserApi } from "../models/usersapi";
 import { StorageService } from "../services/storage.service";
@@ -15,7 +15,6 @@ export class LoginComponent implements OnInit {
   password = '';
 
   constructor(
-    
     private router: Router,
     private usersService: UsersService,
     private storageService: StorageService
