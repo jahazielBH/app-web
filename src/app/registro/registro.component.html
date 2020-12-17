@@ -1,42 +1,43 @@
 <html>
-  <head>
-    <meta charset="utf-8">
-    
-  </head>
-  <body>
-    
 
-        
-    <div class="login-box">
-      
-      <h1>Registrate</h1>
-      <form >
-        <label for="name">Nombre</label>
-        <input id="name" [(ngModel)]="name" type="text" class="form-control operator3" name="operator3"
-                    placeholder="nombre">
+<head>
+  <meta charset="utf-8">
 
-        <label for="email">Email</label>
-        <input id="email" [(ngModel)]="email" type="text" class="form-control operator4" name="operator4"
+</head>
+
+<body>
+
+
+
+  <div class="login-box">
+
+    <h1>Registrate</h1>
+    <form>
+      <label for="name">Nombre</label>
+      <input id="name" [(ngModel)]="name" type="text" class="form-control operator3" name="operator3"
+        placeholder="nombre">
+
+      <label for="email">Email</label>
+      <input id="email" [(ngModel)]="email" type="text" class="form-control operator4" name="operator4"
         placeholder="email">
 
-        <!-- USERNAME  -->
-        <label for="username">Usuario</label>
-        <input id="username" [(ngModel)]="username" type="text" class="form-control operator1" name="operator1"
-                    placeholder="username">
+      <!-- USERNAME  -->
+      <label for="username">Usuario</label>
+      <input id="username" [(ngModel)]="username" type="text" class="form-control operator1" name="operator1"
+        placeholder="username">
 
-        <!-- PASSWORD  -->
-        <label for="password">Contraseña</label>
-       <input id="password" [(ngModel)]="password" type="password" class="form-control operator2"
-                    name="operator2" placeholder="mayor a 6 caracteres">
-        <div align="center">
-        <a class="btn btn-info btn-block ">
-            <i class="glyphicon glyphicon-log-in addition-button" (click)="registrar()"> Login</i>
-        </a>
-        </div>
-      </form>
-    </div>
-    
-    
-  </body>
-  
+      <!-- PASSWORD  -->
+      <label for="password">Contraseña</label>
+      <input id="password" [(ngModel)]="password" type="password" class="form-control operator2" name="operator2"
+        placeholder="mayor a 6 caracteres">
+      <div align="center">
+        <a class="addition-button" (click)="registrar()" >Crear Cuenta</a><br>
+        <a href="landing-page">Cancelar y Regresar</a>
+      </div>
+    </form>
+  </div>
+
+
+</body>
+
 </html>

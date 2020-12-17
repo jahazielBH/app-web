@@ -13,7 +13,7 @@ import { UserApiRe } from '../models/userapire';
 export class UsersService {
 
     // Define API
-    apiURL = 'http://localhost:8080';
+    apiURL = 'https://user-imc-api.herokuapp.com';
 
     constructor(private http: HttpClient,private router: Router) { }
 
@@ -27,7 +27,7 @@ export class UsersService {
             'Content-Type': 'application/json'
         })
     }
-    // HttpClient API post() method => Create employee
+    // HttpClient API post() method => Obtain User
     loginUser(userApi): Observable<UserApi> {
        
         console.log(JSON.stringify(userApi));
@@ -37,17 +37,18 @@ export class UsersService {
                 catchError(this.MessageError)
             )
     }
-
+    // HttpClient API post() method => Create User
     signup(userApiRe): Observable<UserApiRe> {
-        this.router.navigate(['/mapa']);
         console.log(JSON.stringify(userApiRe));
         return this.http.post<UserApiRe>(this.apiURL + '/api/auth/signup', JSON.stringify(userApiRe), this.httpOptions)
-            .pipe(
-                retry(1),
-                catchError(this.MessageError)
-            )
     }
+    
 
+    isUserLoggedIn() {
+        let user = localStorage.getItem('token')
+        console.log(!(user === null))
+        return !(user === null)
+    }
 
     // Error handling 
     handleError(error) {

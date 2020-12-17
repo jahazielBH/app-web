@@ -13,7 +13,8 @@
         
     <div class="login-box">
       
-      <h1>Ingresa</h1>
+      <h1>Iniciar sesión</h1><br>
+
       <form >
         <!-- USERNAME  -->
         <label for="username">Usuario</label>
@@ -24,10 +25,8 @@
        <input id="password" [(ngModel)]="password" type="password" class="form-control operator2"
                     name="operator2" placeholder="password">
         <div align="center">
-        <a class="btn btn-info btn-block ">
-            <i class="glyphicon glyphicon-log-in addition-button" (click)="addition()"> Login</i>
-        </a>
         <br>
+        <a class=" addition-button" (click)="addition()">Ingresar</a><br>
         <a href="registro">Registrate</a><br>
         </div>
       </form>

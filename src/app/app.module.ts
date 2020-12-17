@@ -8,6 +8,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { LoginComponent } from './login/login.component';
 import { StorageService } from "./services/storage.service";
 import {FormsModule} from '@angular/forms';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import {FormsModule} from '@angular/forms';
     AppComponent,
     RegistroComponent,
     LoginComponent,
+    HeaderComponent,
   
   ],
   imports: [

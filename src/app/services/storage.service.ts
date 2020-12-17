@@ -3,7 +3,7 @@ export class StorageService {
     constructor() { }
 
     getApiUrl() {
-        return 'http://localhost:8080'
+        return 'https://user-imc-api.herokuapp.com'
     }
 
     setSession(key: string, obj: any) {

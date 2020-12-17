@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UsersServiceSi } from "../services/users.service.s";
+import { UsersService } from "../services/users.service";
 import { UserApiRe } from "../models/userapire";
 import { StorageService } from "../services/storage.service";
 
@@ -18,7 +18,7 @@ export class RegistroComponent implements OnInit {
  
   constructor(
     private router: Router,
-    private usersService: UsersServiceSi,
+    private usersService: UsersService,
     private storageService: StorageService
   ) { }
  
@@ -42,24 +42,14 @@ export class RegistroComponent implements OnInit {
       mydata.role.push("user");
       
       return this.usersService.signup(mydata)
-        .subscribe((data: any) => {
-          //this.ir();
-          //this.router.navigate(['/mapa']);
-          this.storageService.setLocal("token", data.accessToken);
-          this.result = data.accessToken;
-          //alert(data.accessToken);
-
-        })
+      .subscribe((data: any) => {
+        this.result = 'Cuenta Creada con Exito';
+        alert('Cuenta Creada con Exito');
+      })
 
     }
 
     this.result = myresult;
-  }
-
-
-  ir(){
-    this.router.navigate(['/mapa']);
-    return true;
   }
 
   ngOnInit(): void {
