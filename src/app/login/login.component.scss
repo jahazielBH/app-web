@@ -10,15 +10,15 @@ body {
   
   .login-box {
     width: 320px;
-    height: 420px;
+    height: 430px;
     background: rgb(16, 3, 56);
     color: #fff;
-    top: 50%;
+    top: 60%;
     left: 50%;
     position: absolute;
     transform: translate(-50%, -40%);
     box-sizing: border-box;
-    padding: 70px 30px;
+    padding: 52px 30px;
   }
   
   
@@ -31,8 +31,6 @@ body {
   }
   
   .login-box label {
-    margin: 0;
-    padding: 0;
     font-weight: bold;
     display: block;
   }
@@ -60,6 +58,7 @@ body {
     color: #fff;
     font-size: 18px;
     border-radius: 20px;
+    
   }
   
   .login-box input[type="submit"]:hover {
@@ -78,3 +77,17 @@ body {
   .login-box a:hover {
     color: #fff;
   }
+
+  .addition-button {
+    cursor: pointer;
+    background: #b80f22;
+    color: #fff;
+    display: block;
+    border-radius: 20px;
+    padding: 10px 30px;
+    font-size: 18px;
+}
+.btn-block {
+  display: block;
+  width: 100%;
+}
