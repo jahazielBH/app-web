@@ -19,12 +19,7 @@ export class LoginComponent implements OnInit {
     private usersService: UsersService,
     private storageService: StorageService
   ) { }
-  
-ir(){
-  this.router.navigate(['/mapa']);
-  return true;
-}
-
+ 
   ngOnInit(): void {
   }
 

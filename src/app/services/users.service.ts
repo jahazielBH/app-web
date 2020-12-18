@@ -12,7 +12,9 @@ import { UserApiRe } from '../models/userapire';
 export class UsersService {
 
     // Define API
-    apiURL = 'https://user-imc-api.herokuapp.com';
+    //apiURL = 'http://34.68.87.191:5014';
+    //apiURL = 'http://localhost:8080';
+    apiURL = 'http://34.122.134.229:5044';
 
     constructor(private http: HttpClient) { }
 
