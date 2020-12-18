@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { RegistroComponent } from './registro.component';
+import { HttpClientModule} from '@angular/common/http';
+import { AppRoutingModule } from '../app-routing.module';
 
 describe('RegistroComponent', () => {
   let component: RegistroComponent;
@@ -8,7 +9,11 @@ describe('RegistroComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RegistroComponent ]
+      declarations: [ RegistroComponent ],
+      imports: [
+        HttpClientModule,
+        AppRoutingModule
+      ],
     })
     .compileComponents();
   });
@@ -19,7 +24,7 @@ describe('RegistroComponent', () => {
     fixture.detectChanges();
   });
 
-  xit('should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });

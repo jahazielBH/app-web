@@ -3,6 +3,8 @@ import * as L from 'leaflet';
 import { icon, Marker } from 'leaflet';
 import { MarkerService } from '../_services/marker.service';
 import { ShapeService } from '../_services/shape.service';
+import { UsersService } from "../services/users.service";
+import { StorageService } from "../services/storage.service";
 
 
 const iconRetinaUrl = 'assets/marker-icon-2x.png';
@@ -30,9 +32,12 @@ export class MapComponent implements AfterViewInit {
   private states;
   private map;
 
-  constructor(private shapeService: ShapeService,
-              private markerService: MarkerService) {
-  }
+  constructor(
+    private shapeService: ShapeService,
+    private markerService: MarkerService,
+    private storageService: StorageService,
+    public usersService: UsersService) 
+    { }
 
   ngAfterViewInit(): void {
     this.initMap();
@@ -99,5 +104,10 @@ export class MapComponent implements AfterViewInit {
     });
 
     tiles.addTo(this.map);
+  }
+
+  logout() {
+    // remove user from local storage
+    this.storageService.localDeleteByKey("token");
   }
  }
