@@ -31,7 +31,7 @@ export class RegistroComponent implements OnInit {
       alert('Datos requeridos');
 
     } else {
-      
+      this.router.navigate(['/landing-page']);
       mydata.name = this.name;
       mydata.username = this.username;
       mydata.password = this.password;
@@ -40,8 +40,9 @@ export class RegistroComponent implements OnInit {
       mydata.role.push("user");
       
       return this.usersService.signup(mydata)
+      
       .subscribe((data: any) => {
-        this.router.navigate(['']);
+        
         this.result = 'Cuenta Creada con Exito';
         alert('Cuenta Creada con Exito');
       })
