@@ -1,14 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegistroComponent } from './registro/registro.component';
 import { LoginComponent } from './login/login.component';
-import { StorageService } from "./services/storage.service";
 import {FormsModule} from '@angular/forms';
-import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 import { PmComponent } from './pm/pm.component';
@@ -19,7 +17,6 @@ import { httpInterceptorProviders } from './auth/auth-interceptor';
     AppComponent,
     RegistroComponent,
     LoginComponent,
-    HeaderComponent,
     HomeComponent,
     UserComponent,
     PmComponent,
@@ -32,7 +29,7 @@ import { httpInterceptorProviders } from './auth/auth-interceptor';
     HttpClientModule,
     FormsModule
   ],
-  providers: [httpInterceptorProviders, StorageService],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
