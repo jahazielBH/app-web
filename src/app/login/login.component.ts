@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router} from '@angular/router';
-import { UsersService } from "../services/users.service";
-import { UserApi } from "../models/usersapi";
-import { StorageService } from "../services/storage.service";
+import { AuthService } from '../auth/auth.service';
+import { TokenStorageService } from '../auth/token-storage.service';
+import { AuthLoginInfo } from '../auth/login-info';
 
 @Component({
   selector: 'app-login',
@@ -10,47 +9,51 @@ import { StorageService } from "../services/storage.service";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  result = '';
-  username = '';
-  password = '';
 
-  constructor(
-    private router: Router,
-    private usersService: UsersService,
-    private storageService: StorageService
-  ) { }
+  form: any = {};
+  isLoggedIn = false;
+  isLoginFailed = false;
+  errorMessage = '';
+  roles: string[] = [];
+  private loginInfo: AuthLoginInfo;
+
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
  
-  ngOnInit(): void {
-  }
-
-
-  addition() {
-    let myresult = 'token here !!!';
-
-    var mydata = new UserApi;
-    
-
-    if (this.username == "" || this.password == "") {
-
-      alert('USUARIO Y CONTRASEÑA REQUERIDOS');
-
-    } else {
-
-      mydata.username = this.username;
-      mydata.password = this.password;
-      
-      return this.usersService.loginUser(mydata)
-        .subscribe((data: any) => {
-          this.router.navigate(['/mapa']);
-          this.storageService.setLocal("token", data.accessToken);
-          this.result = data.accessToken;
-          //alert(data.accessToken);
-
-        })
-
+  ngOnInit() {
+    if (this.tokenStorage.getToken()) {
+      this.isLoggedIn = true;
+      this.roles = this.tokenStorage.getAuthorities();
     }
-
-    this.result = myresult;
   }
 
+  onSubmit() {
+    console.log(this.form);
+
+    this.loginInfo = new AuthLoginInfo(
+      this.form.username,
+      this.form.password);
+
+    this.authService.attemptAuth(this.loginInfo).subscribe(
+      data => {
+        this.tokenStorage.saveToken(data.accessToken);
+        this.tokenStorage.saveUsername(data.username);
+        this.tokenStorage.saveAuthorities(data.authorities);
+        //this.tokenStorage.saveId(data.id);
+
+        this.isLoginFailed = false;
+        this.isLoggedIn = true;
+        this.roles = this.tokenStorage.getAuthorities();
+        this.reloadPage();
+      },
+      error => {
+        console.log(error);
+        this.errorMessage = error.error.message;
+        this.isLoginFailed = true;
+      }
+    );
+  }
+
+  reloadPage() {
+    window.location.reload();
+  }
 }
