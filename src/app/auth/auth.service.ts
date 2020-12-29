@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { JwtResponse } from './jwt-response';
 import { AuthLoginInfo } from './login-info';
+import { SignUpInfo } from './signup-info';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,6 +16,7 @@ const httpOptions = {
 export class AuthService {
 
   private loginUrl = 'http://34.68.87.191:5044/api/auth/signin';
+  private signupUrl = 'http://34.68.87.191:5044/api/auth/signup';
 
   constructor(private http: HttpClient) { }
 
@@ -22,4 +24,7 @@ export class AuthService {
     return this.http.post<JwtResponse>(this.loginUrl, credentials, httpOptions);
   }
 
+  signUp(info: SignUpInfo): Observable<string> {
+    return this.http.post<string>(this.signupUrl, info, httpOptions);
+  }
 }
