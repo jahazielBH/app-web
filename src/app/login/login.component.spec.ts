@@ -2,9 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppRoutingModule } from '../app-routing.module';
 import { LoginComponent } from './login.component';
 import { HttpClientModule} from '@angular/common/http';
-import { StorageService } from "../services/storage.service";
-import { UsersService } from "../services/users.service";
-
+import { FormsModule } from '@angular/forms';
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
@@ -12,8 +10,9 @@ describe('LoginComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ LoginComponent],
-      providers:[StorageService,UsersService],
+      providers:[HttpClientModule],
       imports: [
+        FormsModule,
         HttpClientModule,
         AppRoutingModule
       ]
