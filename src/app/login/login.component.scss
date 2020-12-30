@@ -1,7 +1,6 @@
 body {
     margin: 0;
-    padding: 0;
-    background: url(imagen.jpg) no-repeat center top;
+    padding: 3%;
     background-size: cover;
     font-family: sans-serif;
     height: 100vh;
@@ -9,16 +8,14 @@ body {
   
   
   .login-box {
-    width: 320px;
-    height: 430px;
     background: rgb(16, 3, 56);
     color: #fff;
-    top: 60%;
+    top: 28%;
     left: 50%;
     position: absolute;
     transform: translate(-50%, -40%);
     box-sizing: border-box;
-    padding: 52px 30px;
+    padding: 50px 30px;
   }
   
   
@@ -90,4 +87,14 @@ body {
 .btn-block {
   display: block;
   width: 100%;
+}
+.background-img {
+    margin: 0;
+    padding: 3%;
+    background: url(../../assets/img/imagen.jpg) no-repeat center top;
+    background-size: 100% 100%;
+    width: 1328px;
+    height: 900px;
+    transform: translate(-7.1%, -2.2%);
+    border-radius: 5px;
 }

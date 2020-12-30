@@ -1,0 +1,19 @@
+<div calss="container-fluid" *ngIf="info.token; else loggedOut">
+  <button class="col-md-offset-11 btn btn-secondary" (click)="logout()">Cerrar sesión</button>
+  <div class="profile-img"></div>
+  <h5 class="badge badge-info">Tu información</h5>
+  <p>
+    <strong>Nombre de usuario:</strong> {{info.username}}<br />
+    <strong>Roles:</strong> {{info.authorities}}<br />
+    <strong>Token:</strong> {{info.token}}.
+  </p>
+  <br/>
+</div>
+<ng-template #loggedOut >
+  <div class="background-img" align="center">
+    <font size=10>Mapa de accidentes en USA.</font><br><br>
+    <font size=5>Informacion acerca de accidentes ocurridos en Estados Unidos</font><br>
+    <font size=5>Cuidate y no formes parte de las estadisticas.</font><br><br><br>
+    <font size=5 >Por favor Iniciar sesión</font>
+  </div>
+</ng-template>
