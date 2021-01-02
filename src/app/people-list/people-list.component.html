@@ -1,0 +1,34 @@
+<h1>Persons</h1>
+{{persons | json}}
+<div class="row">
+    <div class="clo">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Age</th>
+                    <th>Description</th>
+                    <th>City</th>
+                    <th>Country</th>
+                    <th>Street</th>
+                    <th>Weather Condition</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let person of persons">
+                    <td>{{person.id}}</td>
+                    <td>{{person.firstname}}</td>
+                    <td>{{person.lastname}}</td>
+                    <td>{{person.age}}</td>
+                    <td>{{person.description}}</td>
+                    <td>{{person.city}}</td>
+                    <td>{{person.country}}</td>
+                    <td>{{person.street}}</td>
+                    <td>{{person.weather_condition}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
