@@ -11,6 +11,7 @@ import { PeopleListComponent } from '../people-list/people-list.component';
 export class PeopleDetailsComponent implements OnInit {
 
   @Input() person: PersonI;
+
   constructor(
     private redisService: RedisService, 
     private listComponent: PeopleListComponent) { }
@@ -18,7 +19,15 @@ export class PeopleDetailsComponent implements OnInit {
   ngOnInit() {
   }
 
-  
+  updateActive(person: PersonI) {
+    this.redisService.update(person)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.person = data as PersonI;
+        },
+        error => console.log(error));
+  }
 
 
 }

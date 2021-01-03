@@ -9,8 +9,7 @@ import { PersonI } from '../model/person/person';
 })
 export class CreatePeopleComponent implements OnInit {
 
-  
-
+  person: PersonI = new PersonI()
   submitted = false;
 
   constructor(private redisService: RedisService) { }
@@ -18,5 +17,14 @@ export class CreatePeopleComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  
+  save() {
+    this.redisService.create(this.person)
+      .subscribe(data => console.log(data), error => console.log(error));
+    this.person = new PersonI();
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    this.save();
+  }
 }

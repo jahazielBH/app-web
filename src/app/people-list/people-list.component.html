@@ -1,34 +1,67 @@
 <h1>Persons</h1>
-{{persons | json}}
+{{people | json}}
+
+
 <div class="row">
     <div class="clo">
         <table class="table table-hover">
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
                     <th>Age</th>
                     <th>Description</th>
                     <th>City</th>
                     <th>Country</th>
                     <th>Street</th>
                     <th>Weather Condition</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let person of persons">
-                    <td>{{person.id}}</td>
-                    <td>{{person.firstname}}</td>
-                    <td>{{person.lastname}}</td>
-                    <td>{{person.age}}</td>
-                    <td>{{person.description}}</td>
-                    <td>{{person.city}}</td>
-                    <td>{{person.country}}</td>
-                    <td>{{person.street}}</td>
-                    <td>{{person.weather_condition}}</td>
+                <tr *ngFor="persons of people">
+                    <td>{{persons.id}}</td>
+                    <td>{{persons.age}}</td>
+                    <td>{{persons.description}}</td>
+                    <td>{{persons.city}}</td>
+                    <td>{{persons.country}}</td>
+                    <td>{{persons.street}}</td>
+                    <td>{{persons.weather_condition}}</td>
+                    <td>{{persons.firstname}}</td>
+                    <td>{{persons.lastname}}</td>
                 </tr>
             </tbody>
         </table>
+    </div>
+</div>
+
+
+<div *ngFor="let person of people ">
+    <div>
+        <label>ID: </label> {{person.id}}
+    </div>
+    <div>
+        <label>First Name: </label> {{person.firstname}}
+    </div>
+    <div>
+        <label>Last Name: </label> {{person.lastname}}
+    </div>
+    <div>
+        <label>Age: </label> {{person.age}}
+    </div>
+    <div>
+        <label>Description: </label> {{person.description}}
+    </div>
+    <div>
+        <label>City: </label> {{person.city}}
+    </div>
+    <div>
+        <label>Country: </label> {{person.country}}
+    </div>
+    <div>
+        <label>Street: </label> {{person.street}}
+    </div>
+    <div>
+        <label>Weather Condition: </label> {{person.weather_condition}}
     </div>
 </div>

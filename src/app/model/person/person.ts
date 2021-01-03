@@ -1,7 +1,7 @@
 export class PersonI {
     id: number;
-    firstname: string;
-    lastname: string;
+    firstName: string;
+    lastName: string;
     age: number;
     description: string;
     city: string;

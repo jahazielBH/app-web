@@ -21,20 +21,24 @@ export class RedisService {
  //   return this.http.get<User>(`${this.baseUrl}/${id}`);
   //}
  
-  // create(user: User): Observable<User> {
- ///   return this.http.post<User>(this.baseUrl, user);
- // }
+  public create(person: PersonI): Observable<PersonI> {
+    return this.http.post<PersonI>(`${this.baseUrl}/add`, person);
+  }
  
-  //public update(id: number, user: UserI): Observable<UserI> {
-  ///  return this.http.put<UserI>();
-  //}
+  public update(person: PersonI): Observable<Object> {
+    return this.http.put(`${this.baseUrl}/update`, person);
+  }
  
  // public delete(id: number): Observable<any> {
  //   return this.http.delete(`${this.baseUrl}/${id}`);
   //}
  
-  public getAll(): Observable<PersonI[]>{
-    return this.http.get<PersonI[]>(this.baseUrl + "/all", httpOptions);
+  public getAll(){
+    return this.http.get(`${this.baseUrl}/all`, httpOptions);
+  }
+
+  public getById(id: number): Observable<PersonI> {
+    return this.http.get<PersonI>(`${this.baseUrl}/${id}`, httpOptions);
   }
 
 }

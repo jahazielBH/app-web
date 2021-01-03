@@ -9,13 +9,20 @@ import { PersonI } from '../model/person/person';
 })
 export class SearchPeopleComponent implements OnInit {
 
-  id = 0;
-  user: PersonI[] = [];
+  id: any;
+  person: PersonI;
   constructor(private redisService: RedisService) { }
 
   ngOnInit(){
-    
+    this.id = 0;
   }
 
-  
+  private searchPerson() {
+    this.redisService.getById(this.id)
+      .subscribe((person: PersonI) => (this.person = person, console.log(person)));
+  }
+
+  onSubmit() {
+    this.searchPerson();
+  }
 }
