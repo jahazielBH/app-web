@@ -2,12 +2,15 @@
     <form (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="id">Search by id</label>
-            <input type="number" class="form-control" placeholder="Search by id" 
-            id="id" required [(ngModel)]="id" name="id">
+            <input type="number" class="form-control" placeholder="Search by id" id="id" required [(ngModel)]="id"
+                name="id">
         </div>
 
         <div class="btn-group input-group-append">
-            <button type="submit" class="btn btn-outline-secondary">Search</button>
+            <button type="submit" class="badge badge-secondary badge2">Search</button>
+        </div>
+        <div class="position">
+            <button class="badge badge-secondary badge1" (click)="deletePerson()">Delete</button>
         </div>
     </form>
 </div>

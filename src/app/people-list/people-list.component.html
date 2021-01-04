@@ -1,67 +1,33 @@
 <h1>Persons</h1>
-{{people | json}}
-
-
 <div class="row">
     <div class="clo">
-        <table class="table table-hover">
+        <table *ngIf='people' class="table table-hover">
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
                     <th>Age</th>
                     <th>Description</th>
                     <th>City</th>
                     <th>Country</th>
                     <th>Street</th>
                     <th>Weather Condition</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="persons of people">
-                    <td>{{persons.id}}</td>
-                    <td>{{persons.age}}</td>
-                    <td>{{persons.description}}</td>
-                    <td>{{persons.city}}</td>
-                    <td>{{persons.country}}</td>
-                    <td>{{persons.street}}</td>
-                    <td>{{persons.weather_condition}}</td>
-                    <td>{{persons.firstname}}</td>
-                    <td>{{persons.lastname}}</td>
+                <tr *ngFor="let person of people | keyvalue">
+                    <td>{{person.value.id}}</td>
+                    <td>{{person.value.firstName}}</td>
+                    <td>{{person.value.lastName}}</td>
+                    <td>{{person.value.age}}</td>
+                    <td>{{person.value.description}}</td>
+                    <td>{{person.value.city}}</td>
+                    <td>{{person.value.country}}</td>
+                    <td>{{person.value.street}}</td>
+                    <td>{{person.value.weather_condition}}</td>
                 </tr>
             </tbody>
         </table>
-    </div>
-</div>
-
-
-<div *ngFor="let person of people ">
-    <div>
-        <label>ID: </label> {{person.id}}
-    </div>
-    <div>
-        <label>First Name: </label> {{person.firstname}}
-    </div>
-    <div>
-        <label>Last Name: </label> {{person.lastname}}
-    </div>
-    <div>
-        <label>Age: </label> {{person.age}}
-    </div>
-    <div>
-        <label>Description: </label> {{person.description}}
-    </div>
-    <div>
-        <label>City: </label> {{person.city}}
-    </div>
-    <div>
-        <label>Country: </label> {{person.country}}
-    </div>
-    <div>
-        <label>Street: </label> {{person.street}}
-    </div>
-    <div>
-        <label>Weather Condition: </label> {{person.weather_condition}}
     </div>
 </div>

@@ -13,7 +13,7 @@ export class SearchPeopleComponent implements OnInit {
   person: PersonI;
   constructor(private redisService: RedisService) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.id = 0;
   }
 
@@ -24,5 +24,16 @@ export class SearchPeopleComponent implements OnInit {
 
   onSubmit() {
     this.searchPerson();
+  }
+
+  deletePerson(): void {
+    this.redisService.delete(this.id)
+      .subscribe(
+        response => {
+          console.log(response);
+        },
+        error => {
+          console.log(error);
+        });
   }
 }

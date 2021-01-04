@@ -8,4 +8,11 @@ export class PersonI {
     country: string;
     street: string;
     weather_condition: string;
+
+    public void (id: number){
+        this.id=id;
+    }
+    public number (){
+        return this.id;
+    }
 }
