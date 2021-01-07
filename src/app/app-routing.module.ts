@@ -7,6 +7,9 @@ import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 import { PmComponent } from './pm/pm.component';
 import { AdminComponent } from './admin/admin.component';
+import { CreatePeopleComponent } from './create-people/create-people.component';
+import { PeopleListComponent } from './people-list/people-list.component';
+import { SearchPeopleComponent } from './search-people/search-people.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -16,6 +19,9 @@ const routes: Routes = [
   { path: 'auth/login', component: LoginComponent },
   { path: 'mapa', component: MapComponent },
   { path: 'registro', component: RegistroComponent },
+  { path: 'people', component: PeopleListComponent },
+  { path: 'add', component: CreatePeopleComponent },
+  { path: 'findbyid', component: SearchPeopleComponent },
   { path: '', pathMatch: 'full', redirectTo: 'home' }
 ];
 

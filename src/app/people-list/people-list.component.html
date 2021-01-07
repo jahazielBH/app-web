@@ -1,0 +1,33 @@
+<h1>Personas desaparecidas</h1>
+<div class="row">
+    <div class="clo">
+        <table *ngIf='people' class="table table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre(s)</th>
+                    <th>Apellidos</th>
+                    <th>Edad</th>
+                    <th>Descripcion</th>
+                    <th>Ciudad</th>
+                    <th>Pais</th>
+                    <th>Direccion</th>
+                    <th>Condicion climatica (Dia de desaparicion)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let person of people | keyvalue">
+                    <td>{{person.value.id}}</td>
+                    <td>{{person.value.firstName}}</td>
+                    <td>{{person.value.lastName}}</td>
+                    <td>{{person.value.age}}</td>
+                    <td>{{person.value.description}}</td>
+                    <td>{{person.value.city}}</td>
+                    <td>{{person.value.country}}</td>
+                    <td>{{person.value.street}}</td>
+                    <td>{{person.value.weather_condition}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
