@@ -12,6 +12,11 @@ import { UserComponent } from './user/user.component';
 import { PmComponent } from './pm/pm.component';
 import { AdminComponent } from './admin/admin.component';
 import { httpInterceptorProviders } from './auth/auth-interceptor';
+import { CreatePeopleComponent } from './create-people/create-people.component';
+import { PeopleDetailsComponent } from './people-details/people-details.component';
+import { PeopleListComponent } from './people-list/people-list.component';
+import { SearchPeopleComponent } from './search-people/search-people.component';
+import { RedisService } from './redis/redis.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +26,10 @@ import { httpInterceptorProviders } from './auth/auth-interceptor';
     UserComponent,
     PmComponent,
     AdminComponent,
+    CreatePeopleComponent,
+    PeopleDetailsComponent,
+    PeopleListComponent,
+    SearchPeopleComponent,
   
   ],
   imports: [
@@ -29,7 +38,7 @@ import { httpInterceptorProviders } from './auth/auth-interceptor';
     HttpClientModule,
     FormsModule
   ],
-  providers: [httpInterceptorProviders],
+  providers: [httpInterceptorProviders, RedisService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
