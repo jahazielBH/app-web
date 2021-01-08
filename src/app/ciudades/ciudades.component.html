@@ -1,0 +1,29 @@
+<div class="container mt-5">
+  <div class="card text-center">
+      <div class="card-header">
+          <h3>Ciudades</h3>
+      </div>
+      <div class="col card-body">
+          <table class="table">
+              <thead>
+                  <tr>
+                      <th scope="col">Id</th>
+                      <th scope="col">Ciudad</th>
+                      <th scope="col">Pais</th>
+                      <th scope="col">Codigo postal</th>
+                      <th scope="col">No. de accidentes</th>
+                  </tr>
+              </thead>
+              <tbody *ngIf="ciudades">
+                  <tr *ngFor="let ciudad of ciudades | keyvalue">
+                      <th scope="row">{{ ciudad.value.id }}</th>
+                      <th scope="row">{{ ciudad.value.ciudad }}</th>
+                      <th scope="row">{{ ciudad.value.pais }}</th>
+                      <th scope="row">{{ ciudad.value.codigoPostal }}</th>
+                      <th scope="row">{{ ciudad.value.numeroAccidentes }}</th>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>

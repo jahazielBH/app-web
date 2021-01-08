@@ -6,6 +6,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
 import { PmComponent } from './pm/pm.component';
+import { CiudadesComponent } from './ciudades/ciudades.component';
 import { AdminComponent } from './admin/admin.component';
 import { CreatePeopleComponent } from './create-people/create-people.component';
 import { PeopleListComponent } from './people-list/people-list.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'people', component: PeopleListComponent },
   { path: 'add', component: CreatePeopleComponent },
   { path: 'findbyid', component: SearchPeopleComponent },
+  { path: 'ciudades', component: CiudadesComponent },
   { path: '', pathMatch: 'full', redirectTo: 'home' }
 ];
 

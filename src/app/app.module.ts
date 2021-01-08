@@ -17,6 +17,8 @@ import { PeopleDetailsComponent } from './people-details/people-details.componen
 import { PeopleListComponent } from './people-list/people-list.component';
 import { SearchPeopleComponent } from './search-people/search-people.component';
 import { RedisService } from './redis/redis.service';
+import { CiudadesComponent } from './ciudades/ciudades.component';
+import { GraphQLModule } from './graphql.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,13 +32,15 @@ import { RedisService } from './redis/redis.service';
     PeopleDetailsComponent,
     PeopleListComponent,
     SearchPeopleComponent,
+    CiudadesComponent,
   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    GraphQLModule
   ],
   providers: [httpInterceptorProviders, RedisService],
   bootstrap: [AppComponent]
