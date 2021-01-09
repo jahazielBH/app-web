@@ -30,33 +30,40 @@
 
 <div>
     <div class='flex flex-column mt3'>
+      <h3>Agregar ciudades</h3>
+      <br/>
         <input
           class='mb2'
           [(ngModel)]="ciudad"
           type='text'
           placeholder='Nombre de la ciudad'
         />
+        <br/>
         <input
           class='mb2'
           [(ngModel)]="codigoPostal"
           type='text'
           placeholder='Codigo postal de la Ciudad'
         />
+        <br/>
         <input
           class='mb2'
           [(ngModel)]="numeroAccidentes"
           type='text'
           placeholder='Numero de Accidentes'
         />
+        <br/>
         <input
           class='mb2'
           [(ngModel)]="pais"
           type='text'
           placeholder='Nombre del Pais'
         />
+        <br/>
+        <br/>
       </div>
       <button
         (click)="createCiudad()">
-        Submit
+        Aceptar
       </button>
 </div>
