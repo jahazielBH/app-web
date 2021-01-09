@@ -14,6 +14,26 @@ const GET_CIUDADES = gql`
   }
 `;
 
+const CREATE_CIUDAD = gql`
+  mutation($ciudad: String!, $codigoPostal: String!, $numeroAccidentes: String!, $pais: String! ){
+    createLink (ciudad: $ciudad, codigoPostal: $codigoPostal, numeroAccidentes: $numeroAccidentes, pais: $pais){
+      id,
+      ciudad,
+      codigoPostal,
+      numeroAccidentes,
+      pais
+    }
+  }
+`;
+
+type Ciudad = {
+  id?: number;
+  ciudad?: string;
+  codigoPostal?: String;
+  numeroAccidentes?: String;
+  pais?: String;
+}
+
 @Component({
   selector: 'app-ciudades',
   templateUrl: './ciudades.component.html',
@@ -23,6 +43,12 @@ export class CiudadesComponent implements OnInit {
   ciudades: any[];
   loading = true;
   error: any;
+  createdCiudad: Ciudad;
+  ciudad: string = '';
+  codigoPostal: string = '';
+  numeroAccidentes: string = '';
+  pais: string = '';
+
   constructor(private apollo: Apollo) { }
 
   ngOnInit() {
@@ -34,7 +60,17 @@ export class CiudadesComponent implements OnInit {
         this.loading = result.loading;
         this.error = result.error;
       });
-  
   }
 
+  createCiudad(){
+		this.apollo.mutate({
+		  mutation: CREATE_CIUDAD,
+		  variables: {ciudad: this.ciudad, codigoPostal: this.codigoPostal, numeroAccidentes: this.numeroAccidentes, pais: this.pais}
+		}).subscribe(result => {
+		  this.createdCiudad = result.data['createLink'];
+      console.log('New Ciudad: ' + this.createdCiudad.id + ' -> ' + this.createdCiudad.ciudad 
+      + ' -> ' + this.createdCiudad.codigoPostal + ' -> ' + this.createdCiudad.numeroAccidentes
+      + ' -> ' + this.createdCiudad.pais);
+		})
+	}
 }
