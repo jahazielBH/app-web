@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'add', component: CreatePeopleComponent },
   { path: 'findbyid', component: SearchPeopleComponent },
   { path: 'ciudades', component: CiudadesComponent },
-  { path: '', pathMatch: 'full', redirectTo: 'home' }
+  { path: '', pathMatch: 'full', redirectTo: '/home' }
 ];
 
 @NgModule({
