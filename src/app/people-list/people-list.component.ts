@@ -10,7 +10,7 @@ import { PersonI } from '../model/person/person';
 })
 export class PeopleListComponent implements OnInit {
   people: PersonI[];
-  newPerson: PersonI;
+  pageActual: number = 1;
   constructor(private redisService: RedisService) { }
 
   ngOnInit() {
@@ -21,10 +21,6 @@ export class PeopleListComponent implements OnInit {
     err => {
       console.log(err);
     });
-  }
-
-  getAll(){
-    let people
   }
   
 }

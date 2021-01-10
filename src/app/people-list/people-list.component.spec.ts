@@ -3,7 +3,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { PeopleListComponent } from './people-list.component';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 describe('PeopleListComponent', () => {
   let component: PeopleListComponent;
   let fixture: ComponentFixture<PeopleListComponent>;
@@ -11,7 +11,7 @@ describe('PeopleListComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ PeopleListComponent ],
-      imports: [ HttpClientModule, FormsModule, AppRoutingModule],
+      imports: [ HttpClientModule, FormsModule, AppRoutingModule, NgxPaginationModule],
       providers: [ HttpClientModule]
     })
     .compileComponents();

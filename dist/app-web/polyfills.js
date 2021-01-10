@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/jacielpc/Vídeos/app-web/src/polyfills.ts */"hN/g");
+module.exports = __webpack_require__(/*! /home/jacielpc/Escritorio/api/apis/app-web/src/polyfills.ts */"hN/g");
 
 
 /***/ }),

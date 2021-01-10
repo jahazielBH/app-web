@@ -1,7 +1,7 @@
 <div calss="container-fluid" *ngIf="info.token; else loggedOut">
   <button class="col-md-offset-11 btn btn-secondary" (click)="logout()">Cerrar sesión</button>
   <div class="profile-img"></div>
-  <h5 class="badge badge-info">Tu información</h5>
+  <span class="label label-info">Tu información</span>
   <p>
     <strong>Nombre de usuario:</strong> {{info.username}}<br />
     <strong>Roles:</strong> {{info.authorities}}<br />
