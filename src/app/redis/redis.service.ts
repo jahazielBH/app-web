@@ -13,7 +13,7 @@ const httpOptions = {
 
 export class RedisService {
   
-  private baseUrl = 'http://localhost:8083/rest/person';
+  private baseUrl = 'http://104.154.247.177:5045/rest/person';
 
   constructor(private http: HttpClient) { }
  

@@ -13,6 +13,9 @@
     <ng-template #signupForm>
         <div class="login-box row col-sm-6" style="max-width:350px;">
             <h1 class="text-center text-white">Registrate</h1><br>
+            <div *ngIf="f.submitted && isSignUpFailed" class="alert alert-warning">
+                Signup<br />{{errorMessage}}
+            </div>
             <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
                 <div class="form-group">
                     <label for="name">Tu nombre</label>
@@ -50,10 +53,6 @@
                 </div>
                 <div class="form-group">
                     <button class="btn btn-primary">Registrarse</button>
-                    <p>_____________________________________</p>
-                    <div *ngIf="f.submitted && isSignUpFailed" class="alert alert-warning">
-                        Signup<br />{{errorMessage}}
-                    </div>
                 </div>
             </form>
         </div>
