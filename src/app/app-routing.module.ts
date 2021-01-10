@@ -11,14 +11,14 @@ import { SearchPeopleComponent } from './search-people/search-people.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'auth/login', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'mapa', component: MapComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'people', component: PeopleListComponent },
   { path: 'add', component: CreatePeopleComponent },
   { path: 'findbyid', component: SearchPeopleComponent },
   { path: 'ciudades', component: CiudadesComponent },
-  { path: '', pathMatch: 'full', redirectTo: '/home' }
+  { path: '', pathMatch: 'full', redirectTo: 'home' }
 ];
 
 @NgModule({

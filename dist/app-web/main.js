@@ -669,7 +669,7 @@ class HomeComponent {
     }
 }
 HomeComponent.ɵfac = function HomeComponent_Factory(t) { return new (t || HomeComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_auth_token_storage_service__WEBPACK_IMPORTED_MODULE_1__["TokenStorageService"])); };
-HomeComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: HomeComponent, selectors: [["app-home"]], decls: 3, vars: 2, consts: [["calss", "container-fluid", 4, "ngIf", "ngIfElse"], ["loggedOut", ""], ["calss", "container-fluid"], ["routerLink", "", 1, "col-md-offset-11", "btn", "btn-secondary", 3, "click"], [1, "profile-img"], [1, "label", "label-info"], ["align", "center", 1, "background-img"], ["size", "10"], ["size", "5"]], template: function HomeComponent_Template(rf, ctx) { if (rf & 1) {
+HomeComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: HomeComponent, selectors: [["app-home"]], decls: 3, vars: 2, consts: [["calss", "container-fluid", 4, "ngIf", "ngIfElse"], ["loggedOut", ""], ["calss", "container-fluid"], ["routerLink", "/", 1, "col-md-offset-11", "btn", "btn-secondary", 3, "click"], [1, "profile-img"], [1, "label", "label-info"], ["align", "center", 1, "background-img"], ["size", "10"], ["size", "5"]], template: function HomeComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, HomeComponent_div_0_Template, 19, 3, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, HomeComponent_ng_template_1_Template, 15, 0, "ng-template", null, 1, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplateRefExtractor"]);
     } if (rf & 2) {
@@ -997,7 +997,7 @@ class AppComponent {
     }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_auth_token_storage_service__WEBPACK_IMPORTED_MODULE_1__["TokenStorageService"])); };
-AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 15, vars: 9, consts: [[1, "navbar", "navbar-inverse"], [1, "container-fluid"], ["routerLinkActive", "active", 1, "nav", "navbar-nav", "pull-right"], [4, "ngIf"], ["routerLinkActive", "active", 1, "nav", "navbar-nav"], [1, "container"], ["routerLink", "auth/login"], ["routerLink", "registro"], ["href", "#", 1, "navbar-brand"], ["routerLink", "home"], ["routerLink", "mapa"], ["routerLink", "people"], ["routerLink", "add"], ["routerLink", "findbyid"], ["routerLink", "ciudades"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
+AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 15, vars: 9, consts: [[1, "navbar", "navbar-inverse"], [1, "container-fluid"], ["routerLinkActive", "active", 1, "nav", "navbar-nav", "pull-right"], [4, "ngIf"], ["routerLinkActive", "active", 1, "nav", "navbar-nav"], [1, "container"], ["routerLink", "login"], ["routerLink", "registro"], ["href", "#", 1, "navbar-brand"], ["routerLink", "home"], ["routerLink", "mapa"], ["routerLink", "people"], ["routerLink", "add"], ["routerLink", "findbyid"], ["routerLink", "ciudades"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "nav", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "ul", 2);
@@ -1992,14 +1992,14 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     { path: 'home', component: _home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"] },
-    { path: 'auth/login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"] },
+    { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"] },
     { path: 'mapa', component: _map_map_component__WEBPACK_IMPORTED_MODULE_3__["MapComponent"] },
     { path: 'registro', component: _registro_registro_component__WEBPACK_IMPORTED_MODULE_4__["RegistroComponent"] },
     { path: 'people', component: _people_list_people_list_component__WEBPACK_IMPORTED_MODULE_8__["PeopleListComponent"] },
     { path: 'add', component: _create_people_create_people_component__WEBPACK_IMPORTED_MODULE_7__["CreatePeopleComponent"] },
     { path: 'findbyid', component: _search_people_search_people_component__WEBPACK_IMPORTED_MODULE_9__["SearchPeopleComponent"] },
     { path: 'ciudades', component: _ciudades_ciudades_component__WEBPACK_IMPORTED_MODULE_6__["CiudadesComponent"] },
-    { path: '', pathMatch: 'full', redirectTo: '/home' }
+    { path: '', pathMatch: 'full', redirectTo: 'home' }
 ];
 class AppRoutingModule {
 }
@@ -2188,7 +2188,7 @@ class LoginComponent {
             this.isLoginFailed = false;
             this.isLoggedIn = true;
             this.roles = this.tokenStorage.getAuthorities();
-            this.ruta.navigate(['']).then(() => {
+            this.ruta.navigate(["/"]).then(() => {
                 this.reloadPage();
             });
         }, error => {
