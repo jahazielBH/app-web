@@ -48,6 +48,7 @@ export class CiudadesComponent implements OnInit {
   codigoPostal: string = '';
   numeroAccidentes: string = '';
   pais: string = '';
+  pageActual: number = 1;
 
   constructor(private apollo: Apollo) { }
 

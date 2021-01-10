@@ -1,47 +1,51 @@
-<div style="width: 300px;">
-    <form (ngSubmit)="onSubmit()">
-        <div class="form-group">
-            <label for="id">Search by id</label>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3>Search</h3>
+    </div>
+    <form (ngSubmit)="onSubmit()" style="width: 300px;">
+        <div class="form-group panel-body">
             <input type="number" class="form-control" placeholder="Search by id" id="id" required [(ngModel)]="id"
                 name="id">
-        </div>
-
-        <div class="btn-group input-group-append">
-            <button type="submit" class="badge badge-secondary badge2">Search</button>
-        </div>
-        <div class="position">
-            <button class="badge badge-secondary badge1" (click)="deletePerson()">Delete</button>
+            <p></p>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-success">Search</button>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-danger" (click)="deletePerson()">Delete</button>
+            </div>
         </div>
     </form>
 </div>
 <p></p>
-<div *ngIf="person">
-    <h5 class="badge badge-info">More Details</h5>
-    <div>
-        <label>ID: </label> {{person.id}}
-    </div>
-    <div>
-        <label>First Name: </label> {{person.firstName}}
-    </div>
-    <div>
-        <label>Last Name: </label> {{person.lastName}}
-    </div>
-    <div>
-        <label>Age: </label> {{person.age}}
-    </div>
-    <div>
-        <label>Description: </label> {{person.description}}
-    </div>
-    <div>
-        <label>City: </label> {{person.city}}
-    </div>
-    <div>
-        <label>Country: </label> {{person.country}}
-    </div>
-    <div>
-        <label>Street: </label> {{person.street}}
-    </div>
-    <div>
-        <label>Weather Condition: </label> {{person.weather_condition}}
+<div *ngIf="person" class="panel panel-success">
+    <div class="panel-body">
+        <h5 class="badge badge-info">More Details</h5>
+        <div>
+            <label>ID: </label> {{person.id}}
+        </div>
+        <div>
+            <label>First Name: </label> {{person.firstName}}
+        </div>
+        <div>
+            <label>Last Name: </label> {{person.lastName}}
+        </div>
+        <div>
+            <label>Age: </label> {{person.age}}
+        </div>
+        <div>
+            <label>Description: </label> {{person.description}}
+        </div>
+        <div>
+            <label>City: </label> {{person.city}}
+        </div>
+        <div>
+            <label>Country: </label> {{person.country}}
+        </div>
+        <div>
+            <label>Street: </label> {{person.street}}
+        </div>
+        <div>
+            <label>Weather Condition: </label> {{person.weather_condition}}
+        </div>
     </div>
 </div>

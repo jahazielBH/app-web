@@ -7,12 +7,17 @@
 
 <body class="background-img">
   <div class="badge badge-info" *ngIf="isLoggedIn; else loggedOut" >
-    Permisos: {{roles}}
+    Bienvenido a<br/>
+    Iniciado Sesión como <br/>
+    {{user}}
   </div>
 
   <ng-template #loggedOut>
     <div class="login-box row col-sm-6" style="max-width:350px;">
       <h1 class="text-center text-white">Iniciar Sesión</h1><br>
+      <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
+        Error {{errorMessage}}
+      </div>
       <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
         <div class="form-group">
           <label for="username">Nombre de Usuario</label>
@@ -33,15 +38,11 @@
         </div>
         <div class="form-group">
           <button class="btn btn-primary">Iniciar sesión</button>
-          <p>_____________________________________</p>
-          <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
-            Error {{errorMessage}}
-          </div>
         </div>
       </form>
       <hr />
       <p>¿No tienes una cuenta?</p>
-      <a href="registro" class="btn btn-success">Regístrate</a>
+      <a href="registro" style="color: aliceblue;" class="btn btn-success">Regístrate</a>
     </div>
   </ng-template>
 

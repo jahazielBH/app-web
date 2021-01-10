@@ -4,19 +4,13 @@ import { LoginComponent } from './login/login.component';
 import { MapComponent } from './map/map.component';
 import { RegistroComponent } from './registro/registro.component';
 import { HomeComponent } from './home/home.component';
-import { UserComponent } from './user/user.component';
-import { PmComponent } from './pm/pm.component';
 import { CiudadesComponent } from './ciudades/ciudades.component';
-import { AdminComponent } from './admin/admin.component';
 import { CreatePeopleComponent } from './create-people/create-people.component';
 import { PeopleListComponent } from './people-list/people-list.component';
 import { SearchPeopleComponent } from './search-people/search-people.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'user', component: UserComponent },
-  { path: 'pm', component: PmComponent },
-  { path: 'admin', component: AdminComponent },
   { path: 'auth/login', component: LoginComponent },
   { path: 'mapa', component: MapComponent },
   { path: 'registro', component: RegistroComponent },
