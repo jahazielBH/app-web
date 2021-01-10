@@ -45,9 +45,8 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getAuthorities();
-        this.ruta.navigate(["/"]).then(() => {
-          this.reloadPage()
-        });
+        this.reloadPage()
+        this.ruta.navigate(["/home"]);
       },
       error => {
         console.log(error);
