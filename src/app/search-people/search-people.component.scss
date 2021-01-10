@@ -1,11 +1,8 @@
 .badge1{
     background-color: red;
+    display: table-column;
 }
 .badge2{
     background-color: blue;
-}
-.position{
-    position: relative; 
-    display: inline;
-    right: -8%;
+    display: table-column;
 }

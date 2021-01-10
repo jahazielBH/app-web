@@ -1,0 +1,58 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3>Ciudades</h3>
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Ciudad</th>
+          <th scope="col">Pais</th>
+          <th scope="col">Codigo postal</th>
+          <th scope="col">No. de accidentes</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="ciudades">
+        <tr *ngFor="let ciudad of ciudades | keyvalue | paginate: {itemsPerPage: 5, currentPage: pageActual}">
+          <th scope="row">{{ ciudad.value.id }}</th>
+          <th scope="row">{{ ciudad.value.ciudad }}</th>
+          <th scope="row">{{ ciudad.value.pais }}</th>
+          <th scope="row">{{ ciudad.value.codigoPostal }}</th>
+          <th scope="row">{{ ciudad.value.numeroAccidentes }}</th>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3>Agregar ciudades</h3>
+  </div>
+  <div class="panel-body">
+    <div class="col-md-5">
+      <label class="col-sm-2 col-form-label col-form-label-sm">City</label>
+      <input class="form-control" [(ngModel)]="ciudad" type='text' placeholder='Nombre de la ciudad' />
+    </div>
+    <div class="col-md-5">
+      <label class="col-sm-2 col-form-label col-form-label-sm">Zip</label>
+      <input class="form-control" [(ngModel)]="codigoPostal" type='text' placeholder='Codigo postal de la Ciudad' />
+    </div>
+    <div class="col-md-5">
+      <label class="col-sm-6 col-form-label col-form-label-sm">No Accidents</label>
+      <input class="form-control" [(ngModel)]="numeroAccidentes" type='text' placeholder='Numero de Accidentes' />
+    </div>
+    <div class="col-md-5">
+      <label class="col-sm-2 col-form-label col-form-label-sm">Country</label>
+      <input class="form-control" [(ngModel)]="pais" type='text' placeholder='Nombre del Pais' />
+    </div>
+    <div class="col-sm-2">
+      <button (click)="createCiudad()" type="submit" class="btn btn-primary">
+        Guardar
+      </button>
+    </div>
+  </div>
+
+</div>
