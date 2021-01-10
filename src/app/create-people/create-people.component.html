@@ -1,0 +1,61 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3>Agregar personas</h3>
+    </div>
+    <div class="panel-body">
+        <form (ngSubmit)="onSubmit()">
+            <div class="col-md-1">
+                <label for="id">Id</label>
+                <input type="number" class="form-control" id="id" required [(ngModel)]="person.id" name="id">
+            </div>
+    
+            <div class="col-md-5">
+                <label for="firstName">First Name</label>
+                <input type="text" class="form-control" id="firstName" required [(ngModel)]="person.firstName"
+                    name="firstName">
+            </div>
+    
+            <div class="col-md-5">
+                <label for="lastName">Last Name</label>
+                <input type="text" class="form-control" id="lastName" required [(ngModel)]="person.lastName"
+                    name="lastName">
+            </div>
+    
+            <div class="col-md-1">
+                <label for="age">Age</label>
+                <input type="number" class="form-control" id="age" required [(ngModel)]="person.age" name="age">
+            </div>
+    
+            <div class="col-md-12">
+                <label for="description">Description</label>
+                <input type="text" class="form-control" id="description" required [(ngModel)]="person.description"
+                    name="description">
+            </div>
+            <div class="col-md-6">
+                <label for="city">City</label>
+                <input type="text" class="form-control" id="city" required [(ngModel)]="person.city" name="city">
+            </div>
+    
+            <div class="col-md-6">
+                <label for="country">Country</label>
+                <input type="text" class="form-control" id="country" required [(ngModel)]="person.country" name="country">
+            </div>
+    
+            <div class="col-md-12">
+                <label for="street">Street</label>
+                <input type="text" class="form-control" id="street" required [(ngModel)]="person.street" name="street">
+            </div>
+    
+            <div class="col-md-12">
+                <label for="weather_condition">Weather Condition</label>
+                <input type="text" class="form-control" id="weather_condition" required
+                    [(ngModel)]="person.weather_condition" name="weather_condition">
+            </div>
+            <p>.</p>
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+        </form>
+    </div>
+    
+</div>

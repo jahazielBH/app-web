@@ -1,0 +1,22 @@
+.background-img {
+    margin: 0;
+    padding: 3%;
+    background: url(../../assets/img/imagen.jpg) no-repeat center top;
+    background-size: 100% 100%;
+    width: 1309px;
+    height: 900px;
+    transform: translate(-7.1%, -2.2%);
+    border-radius: 0px;
+}
+
+.profile-img {
+    margin: 0;
+    padding: 3%;
+    background: url(../../assets/img/usuario.png) no-repeat center top;
+    background-size: 100% 100%;
+    width: 200px;
+    height: 200px;
+    transform: translate(-7.1%, -2.2%);
+    border-radius: 5px;
+    cursor: pointer;
+}

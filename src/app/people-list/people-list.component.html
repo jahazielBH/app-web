@@ -1,0 +1,36 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3>Personas desaparecidas</h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre(s)</th>
+                    <th>Apellidos</th>
+                    <th>Edad</th>
+                    <th>Descripcion</th>
+                    <th>Ciudad</th>
+                    <th>Pais</th>
+                    <th>Direccion</th>
+                    <th>Condicion climatica (Dia de desaparicion)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let person of people | keyvalue | paginate: {itemsPerPage: 7, currentPage: pageActual}">
+                    <td>{{person.value.id}}</td>
+                    <td>{{person.value.firstName}}</td>
+                    <td>{{person.value.lastName}}</td>
+                    <td>{{person.value.age}}</td>
+                    <td>{{person.value.description}}</td>
+                    <td>{{person.value.city}}</td>
+                    <td>{{person.value.country}}</td>
+                    <td>{{person.value.street}}</td>
+                    <td>{{person.value.weather_condition}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+    </div>
+</div>

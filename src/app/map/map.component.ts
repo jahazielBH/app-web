@@ -30,9 +30,10 @@ export class MapComponent implements AfterViewInit {
   private states;
   private map;
 
-  constructor(private shapeService: ShapeService,
-              private markerService: MarkerService) {
-  }
+  constructor(
+    private shapeService: ShapeService,
+    private markerService: MarkerService)
+    { }
 
   ngAfterViewInit(): void {
     this.initMap();
@@ -100,4 +101,5 @@ export class MapComponent implements AfterViewInit {
 
     tiles.addTo(this.map);
   }
+
  }
