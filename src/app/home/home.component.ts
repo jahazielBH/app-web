@@ -22,5 +22,6 @@ export class HomeComponent implements OnInit {
   logout() {
     this.token.signOut();
     this.ruta.navigate(['']);
+    window.location.reload();
   }
 }
