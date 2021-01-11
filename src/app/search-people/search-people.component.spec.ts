@@ -3,6 +3,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { SearchPeopleComponent } from './search-people.component';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 describe('SearchPeopleComponent', () => {
   let component: SearchPeopleComponent;
@@ -11,7 +12,7 @@ describe('SearchPeopleComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ SearchPeopleComponent ],
-      imports: [ HttpClientModule, FormsModule, AppRoutingModule],
+      imports: [ HttpClientModule, FormsModule, AppRoutingModule, NgxSpinnerModule],
       providers: [ HttpClientModule]
     })
     .compileComponents();

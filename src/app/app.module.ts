@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +16,9 @@ import { RedisService } from './redis/redis.service';
 import { CiudadesComponent } from './ciudades/ciudades.component';
 import { GraphQLModule } from './graphql.module';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InterceptorService } from './services/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -26,8 +29,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     CreatePeopleComponent,
     PeopleListComponent,
     SearchPeopleComponent,
-    CiudadesComponent,
-  
+    CiudadesComponent
   ],
   imports: [
     BrowserModule,
@@ -35,9 +37,11 @@ import { NgxPaginationModule } from 'ngx-pagination';
     HttpClientModule,
     FormsModule,
     GraphQLModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgxSpinnerModule,
+    BrowserAnimationsModule
   ],
-  providers: [httpInterceptorProviders, RedisService],
+  providers: [httpInterceptorProviders, RedisService, {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
