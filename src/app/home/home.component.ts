@@ -17,10 +17,10 @@ export class HomeComponent implements OnInit {
       username: this.token.getUsername(),
       authorities: this.token.getAuthorities(),
     };
-    this.ruta.navigate(['']);
   }
 
   logout() {
     this.token.signOut();
+    this.ruta.navigate(['']);
   }
 }
