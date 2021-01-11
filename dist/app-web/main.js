@@ -540,7 +540,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const uri = 'http://104.154.247.177:5047/graphql/'; // <-- add the URL of the GraphQL server here
+const uri = 'http://104.154.247.177:5046/graphql/'; // <-- add the URL of the GraphQL server here
 function createApollo(httpLink) {
     return {
         link: httpLink.create({ uri }),
@@ -663,11 +663,10 @@ class HomeComponent {
             username: this.token.getUsername(),
             authorities: this.token.getAuthorities(),
         };
-        this.ruta.navigate(['/']);
+        this.ruta.navigate(['']);
     }
     logout() {
         this.token.signOut();
-        window.location.reload();
     }
 }
 HomeComponent.ɵfac = function HomeComponent_Factory(t) { return new (t || HomeComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_auth_token_storage_service__WEBPACK_IMPORTED_MODULE_2__["TokenStorageService"])); };
@@ -981,25 +980,22 @@ class AppComponent {
         this.title = 'app-web';
     }
     ngOnInit() {
-        if (this.tokenStorage.getToken()) {
+        if (this.tokenStorage.isUserLoggedIn()) {
             this.roles = this.tokenStorage.getAuthorities();
             this.roles.every(role => {
                 if (role === 'ROLE_ADMIN') {
                     this.authority = 'admin';
-                    return false;
                 }
                 else if (role === 'ROLE_PM') {
                     this.authority = 'pm';
-                    return false;
                 }
                 this.authority = 'user';
-                return true;
             });
         }
     }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_auth_token_storage_service__WEBPACK_IMPORTED_MODULE_1__["TokenStorageService"])); };
-AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 15, vars: 9, consts: [[1, "navbar", "navbar-inverse"], [1, "container-fluid"], ["routerLinkActive", "active", 1, "nav", "navbar-nav", "pull-right"], [4, "ngIf"], ["routerLinkActive", "active", 1, "nav", "navbar-nav"], [1, "container"], ["routerLink", "login"], ["routerLink", "registro"], ["href", "#", 1, "navbar-brand"], ["routerLink", "home"], ["routerLink", "mapa"], ["routerLink", "people"], ["routerLink", "add"], ["routerLink", "findbyid"], ["routerLink", "ciudades"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
+AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 15, vars: 9, consts: [[1, "navbar", "navbar-inverse"], [1, "container-fluid"], ["routerLinkActive", "active", 1, "nav", "navbar-nav", "pull-right"], [4, "ngIf"], ["routerLinkActive", "active", 1, "nav", "navbar-nav"], [1, "container"], ["routerLink", "user/login"], ["routerLink", "user/registro"], [1, "navbar-brand"], ["routerLink", ""], ["routerLink", "mapa"], ["routerLink", "people/list-people"], ["routerLink", "people/add"], ["routerLink", "people/findbyid"], ["routerLink", "ciudades"]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "nav", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "ul", 2);
@@ -1022,23 +1018,23 @@ AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCompo
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.authority);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.tokenStorage.isUserLoggedIn());
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.authority);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.tokenStorage.isUserLoggedIn());
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.authority);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.tokenStorage.isUserLoggedIn());
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.authority);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.tokenStorage.isUserLoggedIn());
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.authority === "user");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.tokenStorage.isUserLoggedIn());
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.authority === "user");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.tokenStorage.isUserLoggedIn());
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.authority === "user");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.tokenStorage.isUserLoggedIn());
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.authority === "user");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.tokenStorage.isUserLoggedIn());
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.authority === "user");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.tokenStorage.isUserLoggedIn());
     } }, directives: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterLinkActive"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterOutlet"], _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterLinkWithHref"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyJ9 */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AppComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
@@ -1536,6 +1532,10 @@ class TokenStorageService {
         }
         return this.roles;
     }
+    isUserLoggedIn() {
+        let user = sessionStorage.getItem(TOKEN_KEY);
+        return !(user === null);
+    }
 }
 TokenStorageService.ɵfac = function TokenStorageService_Factory(t) { return new (t || TokenStorageService)(); };
 TokenStorageService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: TokenStorageService, factory: TokenStorageService.ɵfac, providedIn: 'root' });
@@ -1993,13 +1993,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const routes = [
-    { path: 'home', component: _home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"] },
-    { path: 'login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"] },
+    { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"] },
+    { path: 'user/login', component: _login_login_component__WEBPACK_IMPORTED_MODULE_2__["LoginComponent"] },
+    { path: 'user/registro', component: _registro_registro_component__WEBPACK_IMPORTED_MODULE_4__["RegistroComponent"] },
     { path: 'mapa', component: _map_map_component__WEBPACK_IMPORTED_MODULE_3__["MapComponent"] },
-    { path: 'registro', component: _registro_registro_component__WEBPACK_IMPORTED_MODULE_4__["RegistroComponent"] },
-    { path: 'people', component: _people_list_people_list_component__WEBPACK_IMPORTED_MODULE_8__["PeopleListComponent"] },
-    { path: 'add', component: _create_people_create_people_component__WEBPACK_IMPORTED_MODULE_7__["CreatePeopleComponent"] },
-    { path: 'findbyid', component: _search_people_search_people_component__WEBPACK_IMPORTED_MODULE_9__["SearchPeopleComponent"] },
+    { path: 'people/list-people', component: _people_list_people_list_component__WEBPACK_IMPORTED_MODULE_8__["PeopleListComponent"] },
+    { path: 'people/add', component: _create_people_create_people_component__WEBPACK_IMPORTED_MODULE_7__["CreatePeopleComponent"] },
+    { path: 'people/findbyid', component: _search_people_search_people_component__WEBPACK_IMPORTED_MODULE_9__["SearchPeopleComponent"] },
     { path: 'ciudades', component: _ciudades_ciudades_component__WEBPACK_IMPORTED_MODULE_6__["CiudadesComponent"] },
     { path: '', pathMatch: 'full', redirectTo: 'home' }
 ];
@@ -2190,16 +2190,15 @@ class LoginComponent {
             this.isLoginFailed = false;
             this.isLoggedIn = true;
             this.roles = this.tokenStorage.getAuthorities();
-            this.reloadPage();
-            this.ruta.navigate(["/home"]);
+            this.onLoginRedirect();
         }, error => {
             console.log(error);
             this.errorMessage = error.error.message;
             this.isLoginFailed = true;
         });
     }
-    reloadPage() {
-        window.location.reload();
+    onLoginRedirect() {
+        this.ruta.navigate(['']);
     }
 }
 LoginComponent.ɵfac = function LoginComponent_Factory(t) { return new (t || LoginComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_auth_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_auth_token_storage_service__WEBPACK_IMPORTED_MODULE_4__["TokenStorageService"])); };

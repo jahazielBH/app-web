@@ -11,21 +11,18 @@ export class AppComponent {
   roles: string[];
   authority: string;
   
-  constructor(private tokenStorage: TokenStorageService) { }
+  constructor(public tokenStorage: TokenStorageService) { }
  
   ngOnInit() {
-    if (this.tokenStorage.getToken()) {
+    if (this.tokenStorage.isUserLoggedIn()) {
       this.roles = this.tokenStorage.getAuthorities();
       this.roles.every(role => {
         if (role === 'ROLE_ADMIN') {
           this.authority = 'admin';
-          return false;
         } else if (role === 'ROLE_PM') {
           this.authority = 'pm';
-          return false;
         }
         this.authority = 'user';
-        return true;
       });
     }
   }

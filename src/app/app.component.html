@@ -1,18 +1,17 @@
 <nav class="navbar navbar-inverse ">
   <div class="container-fluid">
     <ul class="nav navbar-nav pull-right" routerLinkActive="active">
-      
-      <li *ngIf="!authority"><a routerLink="login">Login</a></li>
-      <li *ngIf="!authority"><a routerLink="registro">Sigup</a></li>
+      <li *ngIf="!tokenStorage.isUserLoggedIn()"><a routerLink="user/login">Login</a></li>
+      <li *ngIf="!tokenStorage.isUserLoggedIn()"><a routerLink="user/registro">Sigup</a></li>
     </ul>
     <ul class="nav navbar-nav " routerLinkActive="active">
-      <li *ngIf="!authority"><a class="navbar-brand" href="#">App Web</a></li>
-      <li *ngIf="authority"><a routerLink="home">Home</a></li>
-      <li *ngIf="authority === 'user'"><a routerLink="mapa">Mapa</a></li>
-      <li *ngIf="authority === 'user'"><a routerLink="people">Personas</a></li>
-      <li *ngIf="authority === 'user'"><a routerLink="add">Añadir persona</a></li>
-      <li *ngIf="authority === 'user'"><a routerLink="findbyid">Buscar</a></li>
-      <li *ngIf="authority === 'user'"><a routerLink="ciudades">Ciudades</a></li>
+      <li *ngIf="!tokenStorage.isUserLoggedIn()"><a class="navbar-brand">App Web</a></li>
+      <li *ngIf="tokenStorage.isUserLoggedIn()"><a routerLink="">Home</a></li>
+      <li *ngIf="tokenStorage.isUserLoggedIn()"><a routerLink="mapa">Mapa</a></li>
+      <li *ngIf="tokenStorage.isUserLoggedIn()"><a routerLink="people/list-people">Personas</a></li>
+      <li *ngIf="tokenStorage.isUserLoggedIn()"><a routerLink="people/add">Añadir persona</a></li>
+      <li *ngIf="tokenStorage.isUserLoggedIn()"><a routerLink="people/findbyid">Buscar</a></li>
+      <li *ngIf="tokenStorage.isUserLoggedIn()"><a routerLink="ciudades">Ciudades</a></li>
     </ul>
   </div>
 </nav>

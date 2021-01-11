@@ -16,13 +16,11 @@ export class HomeComponent implements OnInit {
       token: this.token.getToken(),
       username: this.token.getUsername(),
       authorities: this.token.getAuthorities(),
-     // id: this.token.getId()
     };
-    this.ruta.navigate(['/']);
+    this.ruta.navigate(['']);
   }
 
   logout() {
     this.token.signOut();
-    window.location.reload();
   }
 }
