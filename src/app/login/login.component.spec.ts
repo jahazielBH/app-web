@@ -3,6 +3,8 @@ import { AppRoutingModule } from '../app-routing.module';
 import { LoginComponent } from './login.component';
 import { HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { NgxSpinnerModule } from "ngx-spinner";
+
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
@@ -14,7 +16,8 @@ describe('LoginComponent', () => {
       imports: [
         FormsModule,
         HttpClientModule,
-        AppRoutingModule
+        AppRoutingModule,
+        NgxSpinnerModule
       ]
     })
     .compileComponents();

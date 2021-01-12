@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TokenStorageService } from '../auth/token-storage.service';
 @Component({
   selector: 'app-home',
@@ -8,19 +9,19 @@ import { TokenStorageService } from '../auth/token-storage.service';
 export class HomeComponent implements OnInit {
   info: any;
 
-  constructor(private token: TokenStorageService) { }
+  constructor(private ruta: Router, private token: TokenStorageService) { }
 
   ngOnInit() {
     this.info = {
       token: this.token.getToken(),
       username: this.token.getUsername(),
       authorities: this.token.getAuthorities(),
-     // id: this.token.getId()
     };
   }
 
   logout() {
     this.token.signOut();
+    this.ruta.navigate(['']);
     window.location.reload();
   }
 }

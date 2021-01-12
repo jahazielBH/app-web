@@ -51,12 +51,8 @@ export class TokenStorageService {
     return this.roles;
   }
 
-  //public saveId(id: string) {
- //   window.sessionStorage.removeItem(ID_KEY);
- //   window.sessionStorage.setItem(ID_KEY, id);
- //}
-
- // public getId(): string {
- //   return sessionStorage.getItem(ID_KEY);
- // }
+  isUserLoggedIn() {
+    let user = sessionStorage.getItem(TOKEN_KEY)
+    return !(user === null)
+  }
 }

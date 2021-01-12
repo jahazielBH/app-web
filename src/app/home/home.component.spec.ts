@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { AppRoutingModule } from '../app-routing.module';
 import { HomeComponent } from './home.component';
 import { FormsModule } from '@angular/forms';
 describe('HomeComponent', () => {
@@ -9,7 +9,7 @@ describe('HomeComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ HomeComponent ],
-      imports: [FormsModule]
+      imports: [FormsModule, AppRoutingModule]
     })
     .compileComponents();
   });

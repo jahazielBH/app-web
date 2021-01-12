@@ -10,13 +10,13 @@ import { PeopleListComponent } from './people-list/people-list.component';
 import { SearchPeopleComponent } from './search-people/search-people.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'auth/login', component: LoginComponent },
+  { path: '', component: HomeComponent },
+  { path: 'user/login', component: LoginComponent },
+  { path: 'user/registro', component: RegistroComponent },
   { path: 'mapa', component: MapComponent },
-  { path: 'registro', component: RegistroComponent },
-  { path: 'people', component: PeopleListComponent },
-  { path: 'add', component: CreatePeopleComponent },
-  { path: 'findbyid', component: SearchPeopleComponent },
+  { path: 'people/list-people', component: PeopleListComponent },
+  { path: 'people/add', component: CreatePeopleComponent },
+  { path: 'people/findbyid', component: SearchPeopleComponent },
   { path: 'ciudades', component: CiudadesComponent },
   { path: '', pathMatch: 'full', redirectTo: 'home' }
 ];

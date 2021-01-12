@@ -4,6 +4,8 @@ import { PeopleListComponent } from './people-list.component';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxSpinnerModule } from "ngx-spinner";
+
 describe('PeopleListComponent', () => {
   let component: PeopleListComponent;
   let fixture: ComponentFixture<PeopleListComponent>;
@@ -11,7 +13,7 @@ describe('PeopleListComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ PeopleListComponent ],
-      imports: [ HttpClientModule, FormsModule, AppRoutingModule, NgxPaginationModule],
+      imports: [ HttpClientModule, FormsModule, AppRoutingModule, NgxPaginationModule, NgxSpinnerModule],
       providers: [ HttpClientModule]
     })
     .compileComponents();

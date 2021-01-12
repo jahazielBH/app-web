@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { TokenStorageService } from '../auth/token-storage.service';
 import { AuthLoginInfo } from '../auth/login-info';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
   user: string;
   private loginInfo: AuthLoginInfo;
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
+  constructor(private ruta: Router,private authService: AuthService, private tokenStorage: TokenStorageService) { }
  
   ngOnInit() {
     if (this.tokenStorage.getToken()) {
@@ -44,7 +45,7 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getAuthorities();
-        this.reloadPage();
+        this.onLoginRedirect();
       },
       error => {
         console.log(error);
@@ -53,8 +54,7 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-
-  reloadPage() {
-    window.location.reload();
+  onLoginRedirect(): void {
+    this.ruta.navigate(['']);
   }
 }

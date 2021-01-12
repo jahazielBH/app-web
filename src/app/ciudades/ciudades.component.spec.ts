@@ -6,6 +6,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { HttpClientModule} from '@angular/common/http';
 import { GraphQLModule } from '../graphql.module';
 import { FormsModule } from '@angular/forms';
+import { NgxSpinnerModule } from "ngx-spinner";
 describe('CiudadesComponent', () => {
   let component: CiudadesComponent;
   let fixture: ComponentFixture<CiudadesComponent>;
@@ -13,7 +14,7 @@ describe('CiudadesComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ CiudadesComponent ],
-      imports: [HttpClientModule, NgxPaginationModule, GraphQLModule, FormsModule],
+      imports: [HttpClientModule, NgxPaginationModule, GraphQLModule, FormsModule, NgxSpinnerModule],
       providers: [ HttpClientModule]
     })
     .compileComponents();

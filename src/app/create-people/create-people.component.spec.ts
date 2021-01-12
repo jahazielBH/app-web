@@ -3,6 +3,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { CreatePeopleComponent } from './create-people.component';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 describe('CreatePeopleComponent', () => {
   let component: CreatePeopleComponent;
@@ -11,7 +12,7 @@ describe('CreatePeopleComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ CreatePeopleComponent ],
-      imports: [ HttpClientModule, FormsModule, AppRoutingModule],
+      imports: [ HttpClientModule, FormsModule, AppRoutingModule, NgxSpinnerModule],
       providers: [ HttpClientModule]
     })
     .compileComponents();

@@ -3,6 +3,7 @@ import { HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from '../app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { RegistroComponent } from './registro.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 describe('RegistroComponent', () => {
   let component: RegistroComponent;
@@ -15,7 +16,8 @@ describe('RegistroComponent', () => {
       imports: [
         FormsModule,
         HttpClientModule,
-        AppRoutingModule
+        AppRoutingModule,
+        NgxSpinnerModule
       ]
     })
     .compileComponents();
